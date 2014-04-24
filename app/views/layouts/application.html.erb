@@ -17,16 +17,33 @@
     <div class="row">
       <div class="small-12 columns" id="main_content">
         <%= render :partial => "partials/flash" %>
-        <%= yield %>
       </div>
     </div>
+
+
+     <div class="row">
+      <div class="small-8 columns">
+        <!-- MAIN CONTENT GOES HERE -->
+        <%= yield %>
+        <%= javascript_include_tag "application" %>
+      </div>
+
+      <div class="small-4 columns">
+        <!-- SIDEBAR CONTENT GOES HERE -->
+        <%=yield :sidebar %>
+      </div>
+    </div>
+
+
     <footer>
       <div class="row">
-        <div class="small-12 columns" id="footer">
+        <div class="small-6 large-centered columns">
           <%= render partial: 'partials/footer' %>
         </div>
       </div> 
     </footer> 
     <%= javascript_include_tag "application" %>
   </body>
+
+
 </html>

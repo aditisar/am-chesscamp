@@ -13,3 +13,28 @@
 
  *= require_tree .
  */
+
+.table {
+	border-left: none;
+    border-right: none;
+    border-collapse: collapse;
+}
+
+.table th {
+	background: #7d0000;
+	color: white;
+	font-weight: normal;
+}
+
+.table td {
+	background: #f3e5e5;
+	color: #290000;
+	padding: 8px;
+	border-bottom: 1px solid #fff;
+	border-top: 1px solid transparent;
+}
+
+.table tr:hover td {
+	background: #e7cccc;
+	color: #290000;
+}
