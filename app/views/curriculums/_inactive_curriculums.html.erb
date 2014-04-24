@@ -1,10 +1,17 @@
-<% unless @inactive_curriculums.empty? %>
-  <div class="panel clearfix">
-    <h5>Inactive Curriculums</h5>
-    <ul class="side-nav">
-      <% @inactive_curriculums.each do |curriculum| %>
-        <li><%= link_to curriculum.name, curriculum_path(curriculum) %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+
+<h3> <small> Inactive </small></h3> <br />
+
+<table class="table">
+  <% if not @inactive_curriculums.empty? %> 
+
+    <% @inactive_curriculums.each do |curriculum| %>
+    <tr> 
+      <td><%= link_to curriculum.name, curriculum_path(curriculum) %></td>
+    </tr>
+    <% end %>
+    <% else %>
+    <tr>
+      <td> No inactive curriculums </td>
+    </tr>
+  <% end %>
+</table>

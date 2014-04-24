@@ -23,12 +23,14 @@
 
      <div class="row">
       <div class="small-8 columns">
+        <br/><br/>
         <!-- MAIN CONTENT GOES HERE -->
         <%= yield %>
         <%= javascript_include_tag "application" %>
       </div>
 
       <div class="small-4 columns">
+        <br/><br/>
         <!-- SIDEBAR CONTENT GOES HERE -->
         <%=yield :sidebar %>
       </div>

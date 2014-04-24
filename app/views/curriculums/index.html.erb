@@ -1,17 +1,14 @@
 <div class="row">
-  <div class="small-7 columns">
+  <div class="small-9 columns">
     <!-- MAIN CONTENT GOES HERE -->
     <%= render :partial => "active_curriculums" %>
     <br />
-    <%= link_to "Add a new curriculum", new_curriculum_path, class: "button tiny radius" %>
+<%= link_to 'Add a New Curriculum', new_curriculum_path, id: 'addbutton', class: "button radius small"%>
   </div>
 
-  <div class="small-1 columns">
-    &nbsp;
-  </div>
 
-  <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
+<% content_for :sidebar do %>
     <%= render partial: 'inactive_curriculums' %>
-  </div>
+<% end %>
+
 </div>

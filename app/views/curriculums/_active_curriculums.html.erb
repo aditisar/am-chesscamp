@@ -1,22 +1,20 @@
-<h3>Active Curriculums</h3>
-
+<h3> <small> Active Curriculums </small></h3> <br />
 <table class="table">
   <tr>
-    <th width="200">Name</th>
-    <th width="200">Ratings Range</th>
-    <th width="100">Times Used</th>
-    <th></th>
+    <th>Names</th>
+    <th>Ratings</th>
+    <th>Times Used</th>
     <th></th>
   </tr>
 
-<% @active_curriculums.each do |curriculum| %>
-  <tr>
+  <% @active_curriculums.each do |curriculum| %>
+  <tr> 
     <td><%= link_to curriculum.name, curriculum_path(curriculum) %></td>
-    <td align="center"><%= curriculum.min_rating.zero? ? "Unrated" : curriculum.min_rating %> - <%= curriculum.max_rating %></td>
-    <td align="center"><%= curriculum.camps.size %></td>
-    <td><%= link_to 'Edit', edit_curriculum_path(curriculum), class: "button tiny radius" %></td>
+    <td><%= curriculum.min_rating==0 ? "Unrated" : curriculum.min_rating %> - <%= curriculum.max_rating %></td>
+    <td><center><%= curriculum.camps.length %><center></td>
+    <td><%= link_to 'Edit', edit_curriculum_path(curriculum), id: 'editbutton', class: "button tiny radius" %></td>
   </tr>
-<% end %>
+  <% end %>
 </table>
 <!-- Add the pagination using will_paginate gem -->
 <span class="paginate">
