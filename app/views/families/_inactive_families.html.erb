@@ -1,0 +1,16 @@
+<br /><br /><br />
+<h3> <small> Inactive </small></h3><br />
+
+<table class="table">
+  <% if not @inactive_families.empty? %> 
+    <% @inactive_families.each do |f| %>
+    <tr> 
+      <td><%= link_to f.name, family_path(f) %></td>
+    </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td> No inactive families </td>
+    </tr>
+  <% end %>
+</table>
