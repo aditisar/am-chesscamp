@@ -1,19 +1,21 @@
+<h3>Camps </h3>
+
 <div class="row">
-  <div class="small-7 columns">
-    <!-- MAIN CONTENT GOES HERE -->
+  <div class="small-8 columns">
+    <h3> <small> Upcoming </small></h3><br />
     <%= render :partial => "camps", locals: { status: "Upcoming", camps: @upcoming_camps } %>
     <p>&nbsp;</p>
+    <h3> <small> Past </small></h3><br />
+
     <%= render :partial => "camps", locals: { status: "Past", camps: @past_camps } %>
     <br />
     <%= link_to "Add a new camp", new_camp_path, class: "button tiny radius" %>
   </div>
 
-  <div class="small-1 columns">
-    &nbsp;
-  </div>
+<% content_for :sidebar do %>
+    <%= render partial: 'inactive_camps' %>
+<% end %>
 
-  <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
-    <%= render :partial => "inactive_camps" %>
-  </div>
 </div>
+
+<!-- CONSIDER PUTTING PAST CAMPS IN SIDEBAR ABOVE INACTIVE -->

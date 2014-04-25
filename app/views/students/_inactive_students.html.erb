@@ -1,0 +1,16 @@
+<br /><br /><br />
+<h3> <small> Inactive </small></h3><br />
+
+<table class="table">
+  <% if not @inactive_students.empty? %> 
+    <% @inactive_students.each do |student| %>
+    <tr> 
+      <td><%= link_to student.name, student_path(student) %></td>
+    </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td> No inactive students </td>
+    </tr>
+  <% end %>
+</table>

@@ -5,7 +5,6 @@ class LocationsController < ApplicationController
   end
 
   def show
-    @locations = @curriculum.camps.chronological.to_a
   end
 
   def new

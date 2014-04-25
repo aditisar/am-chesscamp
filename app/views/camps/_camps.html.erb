@@ -1,20 +1,19 @@
-<h3><%= status %> Camps</h3>
-
 <table class="table">
   <tr>
-    <th width="260">Name</th>
-    <th width="120">Start On</th>
-    <th width="120">Time</th>
-    <th></th>
-    <th></th>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Time</th>
+    <th>Cost</td>
   </tr>
 
 <% camps.each do |camp| %>
   <tr>
     <td><%= link_to camp.name, camp_path(camp) %></td>
-    <td align="center"><%= camp.start_date.strftime('%m/%d/%y') %></td>
-    <td align="center"><%= camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
-    <td><%= link_to 'Edit', edit_camp_path(camp), class: "button tiny radius" %></td>
+    <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
+    <td><%= camp.time_slot=="am" ? "Morning" : "Afternoon" %></td>
+    <td><%= number_to_currency(camp.cost) %></td>
+    <td><center><%= link_to 'Edit', edit_camp_path(camp), id: 'editbutton', class: "button tiny radius" %></center></td>
   </tr>
 <% end %>
 </table>
