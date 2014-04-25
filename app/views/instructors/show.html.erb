@@ -9,7 +9,16 @@
   </div>
 
   <div class="small-4 columns">
-    <!-- SIDEBAR CONTENT GOES HERE -->
     <%= render partial: 'instructor_camps' %>
   </div>
+
+<% content_for :sidebar do %>
+
+  <% unless @instructor.picture.nil? %>
+    <p><%= image_tag @instructor.picture %></p>
+  <% end %>
+
+<% end %>
+
+
 </div>
