@@ -8,7 +8,8 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @registrations = @student.registrations
+    @upcoming_camps = @student.camps.upcoming.chronological
+    @past_camps = @student.camps.past.chronological
   end
 
   def new

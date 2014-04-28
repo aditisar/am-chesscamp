@@ -1,0 +1,24 @@
+<h3>Student Details</h3><br />
+<strong>Name:&nbsp;&nbsp;</strong> 
+  <%= @student.proper_name %><br /><br />
+
+<strong>Birthday:&nbsp;&nbsp;</strong> 
+  <%= @student.date_of_birth.strftime('%m/%d/%y') %>, <%= @student.age %> years old <br /><br />
+
+<strong>Active?&nbsp;&nbsp;</strong>
+  <%= @student.active ? "Yes" : "No" %><br /><br />
+
+<strong>Rating:&nbsp;&nbsp;</strong> 
+  <%= @student.rating %><br /><br />
+
+
+<%= link_to "Edit this instructor", edit_student_path(@student), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy instructor', student_path(@student), data: { confirm: 'Are you sure you want to permanently remove this instructor from the system?' }, method: :delete, class: "button tiny radius alert" %>
+
+<!-- 
+    t.string  "first_name"
+    t.string  "last_name"
+    t.integer "family_id"
+    t.date    "date_of_birth"
+    t.integer "rating",        default: 0
+    t.boolean "active",        default: true -->
