@@ -13,6 +13,15 @@
 
   <body>
     <%= render :partial => "partials/nav" %>
+
+<!-- MOVE TO A PARTIAL -->
+    <% if logged_in? %>
+      <%= link_to 'Logout', logout_path %>
+      <br>Welcome, <%= current_user.role %> <%= current_user.instructor.first_name %>!
+    <% else %>
+      <%= link_to 'Login', login_path %>
+    <% end %>
+<!-- ^^MOVE TO A PARTIAL^^ -->
     
     <div class="row">
       <div class="small-12 columns">

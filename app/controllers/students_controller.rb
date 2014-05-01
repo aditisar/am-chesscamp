@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   include ActionView::Helpers::NumberHelper
+  before_action :check_login, except: [:index, :show]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   def index

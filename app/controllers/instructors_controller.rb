@@ -1,5 +1,6 @@
 class InstructorsController < ApplicationController
   include ActionView::Helpers::NumberHelper
+  before_action :check_login, except: [:index, :show]
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,6 +15,7 @@ class InstructorsController < ApplicationController
 
   def new
     @instructor = Instructor.new
+    @instructor.build_user
   end
 
   def edit
@@ -49,6 +51,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :picture, :active)
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :picture, :active, user_attributes: [:username, :role, :instructor_id, :password, :password_confirmation])
     end
 end

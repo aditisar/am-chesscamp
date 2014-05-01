@@ -56,6 +56,9 @@ gem 'bcrypt-ruby', '3.1.5'
 # used for authorization
 gem 'cancancan'
 
+# used for nested forms
+gem "nested_form"
+
 
 # Additional gems that are very useful in Rails development
 group :development do

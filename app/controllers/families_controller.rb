@@ -1,5 +1,7 @@
 class FamiliesController < ApplicationController
   include ActionView::Helpers::NumberHelper
+
+  before_action :check_login, except: [:index, :show]
   before_action :set_family, only: [:show, :edit, :update, :destroy]
 
   def index
