@@ -21,6 +21,7 @@ class InstructorsController < ApplicationController
   def edit
     # reformating the phone so it has dashes when displayed for editing (personal taste)
     @instructor.phone = number_to_phone(@instructor.phone)
+    @instructor.build_user if @instructor.user.nil?
   end
 
   def create
@@ -51,6 +52,6 @@ class InstructorsController < ApplicationController
     end
 
     def instructor_params
-      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :picture, :active, user_attributes: [:username, :role, :instructor_id, :password, :password_confirmation])
+      params.require(:instructor).permit(:first_name, :last_name, :bio, :email, :phone, :picture, :active, user_attributes: [:username, :role, :instructor_id, :password, :password_confirmation, :id])
     end
 end
