@@ -10,6 +10,7 @@ class CampsController < ApplicationController
   end
 
   def show
+    @students = @camp.students.alphabetical.to_a
     @instructors = @camp.instructors.alphabetical.to_a
     @location = @camp.location
   end

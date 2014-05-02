@@ -2,6 +2,9 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= link_to @camp.name, curriculum_path(@camp.curriculum) %><br /><br />
 
+<strong>Rating:&nbsp;&nbsp;</strong> 
+  <%= @camp.curriculum.min_rating==0 ? "Unrated" : @camp.curriculum.min_rating %> - <%= @camp.curriculum.max_rating %><br /><br />
+
 <strong>Cost:&nbsp;&nbsp;</strong> 
   <%= number_to_currency(@camp.cost) %><br /><br />
 
@@ -20,6 +23,13 @@
 
 <strong>Time:&nbsp;&nbsp;</strong> 
   <%= @camp.time_slot == "am" ? "Morning" : "Afternoon" %><br /><br />
+
+<strong>Camp Instructors:&nbsp;&nbsp;</strong> 
+    <ul class="side-nav">
+      <% @instructors.each do |instructor| %>
+        <li><%= link_to instructor.name, instructor_path(instructor) %></li>
+      <% end %>
+    </ul> <br /><br />
 
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @camp.active ? "Yes" : "No" %><br /><br />

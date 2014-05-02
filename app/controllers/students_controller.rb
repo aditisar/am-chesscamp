@@ -15,11 +15,10 @@ class StudentsController < ApplicationController
 
   def new
     @student = Student.new
+    @families = Family.active.alphabetical.map { |f| f.family_name}
   end
 
   def edit
-    # reformating the phone so it has dashes when displayed for editing (personal taste)
-    @student.phone = number_to_phone(@student.phone)
   end
 
   def create
