@@ -2,6 +2,7 @@
 <table class="table">
   <tr>
     <th>Family Name</th>
+    <th>Parent</th>
     <th>Phone</th>
 <!--     <th>Email</th> -->
     <th></th>
@@ -10,6 +11,7 @@
 <% @active_families.each do |f| %>
   <tr> 
     <td><%= link_to f.family_name, family_path(f) %></td>
+    <td><%= f.parent_first_name %></td>
     <td align="center"><%= number_to_phone(f.phone)%></td>
     <!-- <td align="center"><%= mail_to("#{f.email}", "#{f.email}", encode: "javascript") %> </td>  -->
     <td><%= link_to 'Edit', edit_family_path(f), id: 'editbutton', class: "button tiny radius" %></td>

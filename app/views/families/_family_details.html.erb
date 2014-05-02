@@ -2,6 +2,14 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @family.family_name %><br /><br />
 
+<strong>Parent:&nbsp;&nbsp;</strong> 
+  <%= @family.parent_first_name %><br /><br />
+
+<strong>Students:&nbsp;&nbsp;</strong> 
+	<% @children.each do |c| %>
+        <li><%= link_to c.first_name, student_path(c) %></li>
+    <% end %><br /><br />
+
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@family.phone) %><br /><br />
 

@@ -5,7 +5,7 @@
   <% if not @inactive_families.empty? %> 
     <% @inactive_families.each do |f| %>
     <tr> 
-      <td><%= link_to f.name, family_path(f) %></td>
+      <td><%= link_to f.family_name, family_path(f) %></td>
     </tr>
     <% end %>
   <% else %>

@@ -1,0 +1,16 @@
+<br /><br /><br />
+<h3> <small> Inactive </small></h3><br />
+
+<table class="table">
+  <% if not @inactive_locations.empty? %> 
+    <% @inactive_locations.each do |location| %>
+    <tr> 
+      <td><%= link_to location.name, location_path(location) %></td>
+    </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td> No inactive locations </td>
+    </tr>
+  <% end %>
+</table>

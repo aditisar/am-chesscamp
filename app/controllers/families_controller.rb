@@ -10,7 +10,7 @@ class FamiliesController < ApplicationController
   end
 
   def show
-    @students = @family.students.alphabetical
+    @children = @family.students.alphabetical
   end
 
   def new
@@ -23,7 +23,7 @@ class FamiliesController < ApplicationController
   end
 
   def create
-    @family = Family.new(faily_params)
+    @family = Family.new(family_params)
     if @family.save
       redirect_to @family, notice: "#{@family.family_name} family was added to the system."
     else
