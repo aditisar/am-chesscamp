@@ -72,5 +72,9 @@ class FamilyTest < ActiveSupport::TestCase
       @grubermans.make_inactive
       deny @grubermans.active
     end
+
+    should "have a to string method that returns the family name" do
+      assert_equal @grubermans.to_s, 'Gruberman'
+    end
   end
 end

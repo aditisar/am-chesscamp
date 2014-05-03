@@ -23,5 +23,9 @@ class Family < ActiveRecord::Base
     self.active = false
     self.save!
   end
+
+  def to_s
+    self.family_name
+  end
   
 end
