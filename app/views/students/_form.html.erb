@@ -4,9 +4,11 @@
     
     <%= f.input :first_name %>
     <%= f.input :last_name %>
-    <%= f.input :family_id, collection: @families, prompt: "Select family..." %>
+    <%= f.input :family_id, collection: Family.active.alphabetical , prompt: "Select family..." %>
     <%= f.input :rating %>
-    <%= f.input :date_of_birth, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 25, end_year: Date.today.year %>
+    <!-- f.input :date_of_birth, as: :date, order: [:month, :day, :year], include_blank: true, start_year: Date.today.year - 25, end_year: Date.today.year -->
+    <%= f.input :date_of_birth, label: 'Date of Birth', as: :string, input_html: {class: "datepicker"} %>
+
     <%= f.input :active %>
 
     <div class="form-actions">

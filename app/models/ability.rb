@@ -12,6 +12,7 @@ class Ability
         can :update, Instructor do |instructor|  
           instructor.id == user.instructor_id
         end
+        can :read, :all
 
       else
         can :read, :all

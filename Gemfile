@@ -20,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '4.1.1'
 
 # Turbolinks isn't playing nicely with foundation so for now remove it from standard rails
 # gem 'turbolinks'
@@ -58,6 +59,11 @@ gem 'cancancan', '~> 1.7'
 
 # used for nested forms
 gem "nested_form"
+
+# used for date
+gem 'chronic', '0.10.2'
+gem 'time_date_helpers'
+
 
 
 # Additional gems that are very useful in Rails development
