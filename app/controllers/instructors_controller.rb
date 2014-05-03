@@ -2,7 +2,8 @@ class InstructorsController < ApplicationController
   include ActionView::Helpers::NumberHelper
   before_action :check_login, except: [:index, :show]
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource
+  
   def index
     @active_instructors = Instructor.active.alphabetical.paginate(:page => params[:page]).per_page(10)
     @inactive_instructors = Instructor.inactive.alphabetical.paginate(:page => params[:page]).per_page(10)

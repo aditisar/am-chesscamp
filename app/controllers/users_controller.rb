@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-
+  authorize_resource
+  
   
   def new
     @user = User.new

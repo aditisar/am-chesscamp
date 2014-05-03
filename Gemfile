@@ -54,7 +54,7 @@ gem 'carrierwave'
 gem 'bcrypt-ruby', '3.1.5'
 
 # used for authorization
-gem 'cancancan'
+gem 'cancancan', '~> 1.7'
 
 # used for nested forms
 gem "nested_form"
