@@ -7,11 +7,11 @@
   <div class="small-1 columns">
     &nbsp;
   </div>
-
+<% if can? :update, Instructor %>
   <div class="small-4 columns">
     <%= render partial: 'instructor_camps' %>
   </div>
-
+<% end %>
 <% content_for :sidebar do %>
 
   <% unless @instructor.picture.nil? %>

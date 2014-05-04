@@ -1,9 +1,11 @@
 <h1>Welcome chess players!</h1>
 
-<p> The A&M Chess Camp is a group of chess instructors dedicated to providing you and your children with the finest instruction in the Pittsburgh area. The links above will tell you more about our instructors and the camps offered and in the near future we will be expanding this site so that customers like yourself can directly access records for your pets.
-</p>
+<p> The A&M Chess Camp is a group of chess instructors dedicated to providing you and your children with the finest instruction in the Pittsburgh area. The links above will tell you more about the curriculums we offer and the camps you can register your child for. </p>
 
-<p>If you are an administrator (don't lie), <%= link_to "click here to review camps.", camps_path %></p>
+
+<% if can? :update, Instructor %>
+ <%= render :partial => "instructor_dashboard" %>
+<% end %>
 
 <% content_for :sidebar do %>
 <br /><br />

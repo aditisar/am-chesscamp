@@ -8,6 +8,9 @@
 
       <section class="top-bar-section">
         <ul class="right">
+
+
+          <% if can? :manage, :all %>
           <!-- options for curriculums -->
           <li class="has-dropdown">
             <%= link_to "Curriculums", curriculums_path %>
@@ -25,8 +28,14 @@
               <li><%= link_to "Add a Camp", new_camp_path %></li>
             </ul>
           </li>
+         
+          <% else %>
+           <li><%= link_to "Camps", camps_path %></li>
+           <li><%= link_to "Curriculums", curriculums_path %></li>
+          <% end %>
 
-          <!-- options for instructors -->
+          <% if can? :manage, :all %>
+          <!-- options for instructors only admins should be able to see the list -->
           <li class="has-dropdown">
             <!-- <a href="#">Instructors</a> -->
             <%= link_to "Instructors", instructors_path %>
@@ -34,6 +43,15 @@
               <li><%= link_to "List Instructors", instructors_path %></li>
               <li><%= link_to "Add an Instructor", new_instructor_path %></li>
             </ul>
+          </li>
+          <% end %>
+
+          <li>
+           <% if logged_in? %>
+            <%= link_to 'Logout', logout_path %>
+          <% else %>
+            <%= link_to 'Login', login_path %>
+          <% end %>
           </li>
         </ul>
       </section>

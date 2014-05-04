@@ -13,7 +13,8 @@ class Ability
         #can see a list of instructors
         can :index, Instructor
 
-        can :read, Student do |this_student|  
+        #can only read info about their own students
+        can :show, Student do |this_student|  
           instructor_students = user.instructor.camps.map{|c| c.students.map(&:id)}.flatten
           instructor_students.include? this_student.id 
         end
@@ -24,17 +25,33 @@ class Ability
         end
 
         #can read their own instructor page
-        can :read, Instructor do |instructor|
+        can :show, Instructor do |instructor|
           instructor.id == user.instructor_id
         end
 
+        #can see the list of camps
         can :index, Camp
 
-        can :read, Camp
+        #can read the details of each camp
+        can :show, Camp
 
 
       else
-        can :read, :all
+        can :index, Camp
+
+        can :show, Camp
+
+        can :index, Curriculum
+
+        can :show, Curriculum
+
+        can :index, Location
+
+        can :show, Location
+
+        can :show, Instructor
+
+
       end
     #
     # The first argument to `can` is the action you are giving the user

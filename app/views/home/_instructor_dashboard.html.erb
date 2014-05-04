@@ -1,0 +1,29 @@
+<div class="panel dashboard"> 
+
+<h5> Hi, <%= current_user.instructor.first_name %>! </h5>
+<br /> 
+<p>Click <%= link_to 'here', instructor_path(current_user.instructor) %> to view your information, or <%= link_to 'here', edit_instructor_path(current_user.instructor) %> to update it. </p>
+
+<br />
+
+<% if can? :manage, :all %>
+ <%= render :partial => "admin_dashboard" %>
+<% end %>
+
+<p> And of course, most importantly, here is a list of your upcoming camps. Click for details on each. Make sure to report to class on time, or you'll be fired. </p>
+
+<% unless @upcoming_camps.empty? %>
+  <div>
+    <ul style="list-style: none;">
+      <% @upcoming_camps.each do |camp| %>
+        <li><%= link_to camp.name, camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>, <%= camp.time_slot == "am" ? "morning" : "afternoon" %>) </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+
+
+
+</div>

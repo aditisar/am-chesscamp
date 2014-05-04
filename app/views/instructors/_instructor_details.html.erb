@@ -2,6 +2,12 @@
 <strong>Name:&nbsp;&nbsp;</strong> 
   <%= @instructor.proper_name %><br /><br />
 
+<strong>Biography</strong><br />
+  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+
+<!-- THE REST CAN ONLY BE VIEWED BY ADMIN OR THAT INSTRUCTOR -->
+<% if can? :update, Instructor %>
+
 <strong>Phone:&nbsp;&nbsp;</strong> 
   <%= number_to_phone(@instructor.phone) %><br /><br />
 
@@ -20,8 +26,7 @@
 <strong>Active?&nbsp;&nbsp;</strong>
   <%= @instructor.active ? "Yes" : "No" %><br /><br />
 
-<strong>Biography</strong><br />
-  <%= @instructor.bio.nil? ? "N/A" : @instructor.bio %><br /><br />
+<% end %>
 
 
 <%= link_to "Edit this instructor", edit_instructor_path(@instructor), class: "button tiny radius" %>&nbsp;&nbsp;
