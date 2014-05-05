@@ -1,0 +1,16 @@
+<%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Registration</legend>
+
+		<%= f.input :camp_id, :collection => Camp.active.alphabetical, :label_method => lambda { |camp| camp.name + ', starting on ' + camp.start_date.strftime('%m/%d/%y') + ' (' + camp.time_slot + ') ' } %>
+		<%= f.input :student_id, :collection => Student.active.alphabetical, :include_blank => true %>
+    <%= f.input :payment_status, collection: [['deposit','deposit'],['full','full']], prompt: "Select..." %>
+    <%= f.input :points_earned %>
+
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'button radius' %>
+      <%= link_to 'Cancel', students_path(:student_id), :class => 'button alert radius' %>
+    </div>
+  </fieldset>
+<% end %>
