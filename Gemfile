@@ -64,6 +64,9 @@ gem "nested_form"
 gem 'chronic', '0.10.2'
 gem 'time_date_helpers'
 
+# used for icons
+gem 'font-awesome-sass-rails'
+
 
 
 # Additional gems that are very useful in Rails development
