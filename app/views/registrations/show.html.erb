@@ -1,0 +1,17 @@
+<h3>Registration Details</h3><br />
+<strong>Student:&nbsp;&nbsp;</strong> 
+  <%= @registration.student.name %><br /><br />
+
+<strong>Camp:&nbsp;&nbsp;</strong>
+  <%= @registration.camp.name %><br /><br />
+
+<strong>Payment Status:&nbsp;&nbsp;</strong> 
+  <%= @registration.payment_status %><br /><br />
+
+<strong>Points earned:&nbsp;&nbsp;</strong>
+  <%= @registration.points_earned %><br /><br />
+
+
+
+<%= link_to "Edit this registration", edit_registration_path(@registration), class: "button tiny radius" %>&nbsp;&nbsp;
+<%= link_to 'Destroy registration', registration_path(@registration), data: { confirm: 'Are you sure you want to permanently remove this registration from the system?' }, method: :delete, class: "button tiny radius alert" %>

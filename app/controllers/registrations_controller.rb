@@ -22,6 +22,7 @@ class RegistrationsController < ApplicationController
 
   def create
     @registration = Registration.new(registration_params)
+    #@acceptable_camps = Camps.alphabetical
     if @registration.save
       # if saved to database
       flash[:notice] = "#{@registration.student.proper_name} is registered for #{@registration.camp.name}."

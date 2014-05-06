@@ -5,6 +5,8 @@
     <ul class="side-nav">
       <% @upcoming_camps.each do |camp| %>
         <li><%= link_to camp.name, camp_path(camp) %> (<%= camp.start_date.strftime('%m/%d/%y') %>)</li>
+                <li><%= link_to 'Edit Registration', registration_path(camp) %></li>
+
       <% end %>
     </ul>
   </div>

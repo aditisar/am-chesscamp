@@ -15,7 +15,7 @@
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
 <strong>Role:&nbsp;&nbsp;</strong> 
-  <%= @instructor.proper_name %><br /><br />
+  <%= @instructor.user.role %><br /><br />
 
 <% if !@instructor.user.nil?%>
 

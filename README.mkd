@@ -1,4 +1,8 @@
-## 67-272: Chess Camp Phase 5 Starter ##
+## TA: PLEASE READ ##
+
+My code fails the last test (And I should see "sbrunk") in the first scenario (An admin can add a user to an existing instructor) of level 10 cucumber tests.  When I run this manually, it works, and an account username is displayed if the instructor has a user. Please test this manually to verify - I talked to profh and he tried it on his machine and it worked, so he told me to add this note. 
+
+REGISTRATIONS: They way I handled registration for this camp was via the student page. If an admin wants to register a student for the camp, they go to the student's page, click register for camp, where they are directed to a form that will only show camps they are actually allowed to register for. 
 
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
 

@@ -29,11 +29,17 @@ class Ability
           instructor.id == user.instructor_id
         end
 
-        #can see the list of camps
         can :index, Camp
 
-        #can read the details of each camp
         can :show, Camp
+
+        can :index, Curriculum
+
+        can :show, Curriculum
+
+        can :show, Location
+
+        can :show, Instructor
 
 
       else
@@ -44,8 +50,6 @@ class Ability
         can :index, Curriculum
 
         can :show, Curriculum
-
-        can :index, Location
 
         can :show, Location
 
