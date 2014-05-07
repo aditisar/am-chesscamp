@@ -1,9 +1,12 @@
+
+
+<% if @no_instructors.size > 0 || @low_enroll.size > 0 %>
 <div class='alert-panel' >
 <!-- upcoming camps -->
 <!-- THERE'S NO INSTRUCTORS FOR THESE CAMPS --> 
 <strong> ATTENTION  </strong><br /><br />
 
-<% if !@no_instructors.nil? %>
+<% if @no_instructors.size > 0 %>
 The following camps have NO INSTRUCTORS: <br /><br />
 <table class= 'alert-table'>
   <tr>
@@ -18,7 +21,7 @@ The following camps have NO INSTRUCTORS: <br /><br />
     <td><%= link_to camp.name, camp_path(camp) %></td>
     <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
     <td><%= camp.registrations.size %></td>
-    <td><%= camp.max_students %></td>
+    <td><%= camp.max_students %></td> 
   </tr>
 <% end %>
 </table>
@@ -27,7 +30,7 @@ The following camps have NO INSTRUCTORS: <br /><br />
 
 <!-- NOBODY IS REGISTERED! --> <br />
 
-<% if !@low_enroll.nil? %>
+<% if @low_enroll.size > 0 %>
 The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
 <table class= 'alert-table'>
   <tr>
@@ -48,13 +51,20 @@ The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
 </table>
 <% end %>
 
-
 </div>
-
+<%end%>
 <div > 
+<br />
+<strong> Generate Reports </strong><br/>
 
-<%= link_to 'payments printable', payments_path %><br/>
+<ul> 
+<li> <%= link_to 'This year\'s payment report', payments_path %> </li>
+
+
+</ul>
+
 <%= link_to 'general info printable', general_path %><br/>
 
 </div>
 <br /><br /><br />
+

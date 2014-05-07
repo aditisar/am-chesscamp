@@ -58,7 +58,7 @@ class RegistrationsController < ApplicationController
   def destroy
     @registration.destroy
     flash[:notice] = "Successfully removed #{@registration.student.proper_name} from #{@registration.camp.name}."
-    redirect_to registrations_url
+    redirect_to students_url
   end
 
   private

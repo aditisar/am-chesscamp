@@ -42,6 +42,15 @@ class Camp < ActiveRecord::Base
     Camp.where(time_slot: self.time_slot, start_date: self.start_date, location_id: self.location_id).size == 1
   end
 
+
+  def amount_paid
+    a = 0
+    self.registrations.each do |r|
+      r.payment_status == 'full' ? a+=self.cost : a+=50
+    end
+    return a
+  end
+
   # class methods
   def self.openings
     Camp.active.chronological.to_a.select{|c| c.registrations.size < c.max_students}

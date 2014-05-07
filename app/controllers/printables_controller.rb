@@ -1,7 +1,9 @@
+
 class PrintablesController < ApplicationController
   def payments
-    @unpaid_registrations = Registration.all.deposit_only.to_a.sort_by { |r| r.camp }
-    render :layout => 'printable'
+    @camps = Camp.all.to_a
+    @camps.delete_if { |c| c.start_date.year != Date.today.year} 
+    render :layout => 'printable' 
   end
 
   def general

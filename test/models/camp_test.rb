@@ -223,5 +223,16 @@ class CampTest < ActiveSupport::TestCase
       zach_endgames.delete
       kelsey_endgames.delete
     end
+
+    should "have a method for finding out the total paid for a camp" do
+      create_families
+      create_students
+      create_paid_registrations
+      assert_equal 250, @camp1.amount_paid
+      delete_paid_registrations
+      delete_families
+      delete_students
+    end
+
   end
 end
