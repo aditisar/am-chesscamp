@@ -31,6 +31,10 @@ class RegistrationsController < ApplicationController
   end
 
   def edit    
+    @registration.student_id = params[:id] unless params[:id].nil?
+    @registration.camp_id = params[:camp_id] unless params[:camp_id].nil?
+    @student = Student.find(@registration.student_id)
+    @camp = Camp.find(@registration.camp_id)
   end
 
   def create
@@ -70,3 +74,4 @@ class RegistrationsController < ApplicationController
       params.require(:registration).permit(:student_id, :camp_id, :active, :points_earned, :payment_status)  
     end
 end
+ 

@@ -19,7 +19,7 @@ class Location < ActiveRecord::Base
 
   # callbacks
   before_destroy :verify_that_never_used_for_camps
-  #before_validation :get_location_coordinates
+  before_validation :get_location_coordinates
 
   def create_map_link(zoom=16,width=800,height=800)
     markers = ""; 
@@ -32,19 +32,19 @@ class Location < ActiveRecord::Base
     self.camps.empty?
   end
 
-  # def get_location_coordinates
-  #   str = self.street_1
-  #   zip = self.zip
+  def get_location_coordinates
+    str = self.street_1
+    zip = self.zip
     
-  #   coord = Geocoder.coordinates("#{str}, #{zip}")
-  #   if coord
-  #     self.latitude = coord[0]
-  #     self.longitude = coord[1]
-  #   else 
-  #     errors.add(:base, "Error with geocoding")
-  #   end
-  #   coord
-  # end
+    coord = Geocoder.coordinates("#{str}, #{zip}")
+    if coord
+      self.latitude = coord[0]
+      self.longitude = coord[1]
+    else 
+      errors.add(:base, "Error with geocoding")
+    end
+    coord
+  end
 
 
 end
