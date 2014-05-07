@@ -4,8 +4,8 @@ class RegistrationsController < ApplicationController
   authorize_resource
 
   def index
-    @active_registrations = Registration.active.paginate(:page => params[:page]).per_page(10)
-    @inactive_registrations = Registration.inactive.paginate(:page => params[:page]).per_page(10)
+    @active_registrations = Registration.paginate(:page => params[:page]).per_page(10)
+    @inactive_registrations = Registration.paginate(:page => params[:page]).per_page(10)
   end
 
   def show
@@ -23,7 +23,11 @@ class RegistrationsController < ApplicationController
     @possible_camps.delete_if { |c| c.curriculum.min_rating > @student.rating }    
     #get rid of camps at the same time as camps they are registered for
     @times_taken = @student.camps.map { |c| [c.start_date,c.time_slot] }
-    @possible_camps.delete_if { |c| @times_taken.include?([c.start_date,c.time_slot]) }    
+    @possible_camps.delete_if { |c| @times_taken.include?([c.start_date,c.time_slot]) }
+
+    @profh_possible_camps = Curriculum.for_rating(@student.rating).map{ |c| c.camps }.flatten - @student.camps
+   
+    puts 'am i getting the right list of camps ', @profh_possible_camps.sort == @possible_camps.sort
   end
 
   def edit    
@@ -35,10 +39,10 @@ class RegistrationsController < ApplicationController
     if @registration.save
       # if saved to database
       flash[:notice] = "#{@registration.student.proper_name} is registered for #{@registration.camp.name}."
-      redirect_to @student # go to student page
+      redirect_to student_path(@registration.student_id) # go to student page
     else
-      # return to the 'new' form
-      render :action => 'new'
+      # return to the 'new' form 
+      redirect_to :action => "new", :id=> @registration.student_id
     end
   end
 

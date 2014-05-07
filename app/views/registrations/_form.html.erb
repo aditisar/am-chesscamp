@@ -1,8 +1,9 @@
 <%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Registration for   </legend>
+    <legend><%= controller.action_name.capitalize %> Registration for <%= @student.proper_name %></legend>
+    <%= f.input :student_id, as: :hidden, input_html: {value: @student.id} %>
 
-		<%= f.input :camp_id, :collection => @possible_camps, :label_method => lambda {  |camp| camp.start_date.strftime('%m/%d/%y') + ' (' + camp.time_slot + ') - '+ camp.name } %>
+		<%= f.input :camp_id, :collection => @possible_camps, :label_method => lambda { |camp| camp.name + ', starting on ' + camp.start_date.strftime('%m/%d/%y') + ' (' + camp.time_slot + ') ' } %>
 	
     <%= f.input :payment_status, collection: [['deposit','deposit'],['full','full']], prompt: "Select..." %>
     <%= f.input :points_earned %> 
