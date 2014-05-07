@@ -5,6 +5,8 @@ class PrintablesController < ApplicationController
   end
 
   def general
+    until_date = Date.today + 1.month
+    @camps = Camp.all.delete_if {|c| c.start_date > until_date } 
     render :layout => 'printable'
   end
   

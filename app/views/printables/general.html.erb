@@ -1,22 +1,28 @@
 <h3> General Report </h3>
+A general "state of the affairs" report. Includes information on camps starting in the next month, their instructors, and enrollment. 
 <br /><br />
-<h5> List of unpaid registrations </h5>  
-<br /><br />
-<table>
+
+<% if @camps.size > 0 %>
+<table class='printable'>
 	<tr>
-		<th> Parent </th>
-		<th> Student </th> 
 		<th> Camp </th>
 		<th> Start Date </th>
+		<th> Enrolled</th>
+		<th> Enroll Cap</th>
+
 	</tr>
 
-	<% @unpaid_registrations.each do |r| %>
+
+	<% @camps.each do |c| %>
 	<tr>
-		<td> r.student.family.parent_first_name r.student.family.family_name </td>
-		<td> r.student.name </td>
-		<td> r.camp.name </td> 
-		<td> r.camp.start_date </td>
+		<td> <%=c.name %></td> 
+		<td> <%=c.start_date %></td>
+		<td> <%=c.registration.size %></td>
+		<td> <%=c.max_students %></td>
+
 	</tr>
 	<% end %>
 </table> 
-
+<% else %>	
+...No camps coming up in the next month. Time for a vacation B-)
+<% end %>
