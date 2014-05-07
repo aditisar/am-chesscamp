@@ -14,10 +14,10 @@
 <strong>Email:&nbsp;&nbsp;</strong> 
   <%= mail_to @instructor.email, @instructor.email, encode: "javascript" %><br /><br />
 
+<% if !@instructor.user.nil?%>
+
 <strong>Role:&nbsp;&nbsp;</strong> 
   <%= @instructor.user.role %><br /><br />
-
-<% if !@instructor.user.nil?%>
 
 <strong>Account Username:&nbsp;&nbsp;</strong>
   <%= @instructor.user.username %><br /><br />

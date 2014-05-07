@@ -39,3 +39,7 @@
 	background: #e7cccc;
 	color: #290000;
 }
+
+table.printable {
+border-collapse: collapse;
+}

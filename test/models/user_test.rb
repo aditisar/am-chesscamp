@@ -63,5 +63,9 @@ class UserTest < ActiveSupport::TestCase
       deny @mark_user.role?(:instructor)
     end
 
+    should "have an authenticate method that works" do
+      assert_equal @mark_user, User.authenticate(@mark_user.username, @mark_user.password) 
+    end
+
   end
 end

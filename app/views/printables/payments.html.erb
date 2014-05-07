@@ -1,1 +1,21 @@
-payments
+<h3> Payment Report </h3>
+A list of unpaid registrations by upcoming camp:
+<br /><br />
+
+<table class='printable'>
+	<tr>
+		<th> Parent </th>
+		<th> Student </th> 
+		<th> Camp </th>
+		<th> Start Date </th>
+	</tr>
+
+	<% @unpaid_registrations.each do |r| %>
+	<tr>
+		<td> <%= r.student.family.parent_first_name.to_s + " " + r.student.family.family_name.to_s %></td>
+		<td> <%=r.student.proper_name %> </td>
+		<td> <%=r.camp.name %></td> 
+		<td> <%=r.camp.start_date %></td>
+	</tr>
+	<% end %>
+</table> 

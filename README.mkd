@@ -1,9 +1,10 @@
 ## TA: PLEASE READ ##
 
-My code fails the last test (And I should see "sbrunk") in the first scenario (An admin can add a user to an existing instructor) of level 10 cucumber tests.  When I run this manually, it works, and an account username is displayed if the instructor has a user. Please test this manually to verify - I talked to profh and he tried it on his machine and it worked, so he told me to add this note. 
+Regarding cucumber tests: My code fails the last test (And I should see "sbrunk") in the first scenario (An admin can add a user to an existing instructor) of level 10 cucumber tests.  When I run this manually, it works, and an account username is displayed if the instructor has a user. Please test this manually to verify - I talked to profh and he tried it on his machine and it worked, so he told me to add this note. 
 
 REGISTRATIONS: They way I handled registration for this camp was via the student page. If an admin wants to register a student for the camp, they go to the student's page, click register for camp, where they are directed to a form that will only show camps they are actually allowed to register for. 
 
+-----------------------------
 This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
 
 Students can use this as a base to work off of in phase 5 -- HOWEVER, the basic design, color scheme, images and the like must be modified from the tepid design provided here.  (BTW, the text on the static pages like home, about, and contact are purposefully snarky -- you would never use this in a real app and we expect you to modify it to something more appropriate.)  We will reiterate this warning in phase 5 but we are saying it now as well to maximize the opportunities to get the word out: **if students stay with the CSS, images and text used here they can expect to lose 10 points on their phase 5 grade.**  (If you want to have fun with this project you have to make it your own and style it as you see fit.)
