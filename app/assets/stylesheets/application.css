@@ -43,3 +43,20 @@
 table.printable {
 border-collapse: collapse;
 }
+
+.alert-panel {
+  padding: 1em;
+  background-color: #ff9999
+}
+
+.alert-table {
+	text-align: center
+}
+
+.alert-table tr:nth-child(even) {
+  background: #ffe5e5 
+}
+
+.alert-table tr:nth-child(odd) {
+  background: #ffe5e5 
+}

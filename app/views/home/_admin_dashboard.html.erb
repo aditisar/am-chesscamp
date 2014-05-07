@@ -1,9 +1,60 @@
+<div class='alert-panel' >
+<!-- upcoming camps -->
+<!-- THERE'S NO INSTRUCTORS FOR THESE CAMPS --> 
+<strong> ATTENTION  </strong><br /><br />
+
+<% if !@no_instructors.nil? %>
+The following camps have NO INSTRUCTORS: <br /><br />
+<table class= 'alert-table'>
+  <tr>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>Enrolled</th>
+    <th>Max Enroll</th>
+  </tr>
+
+<% @no_instructors.each do |camp| %>
+  <tr>
+    <td><%= link_to camp.name, camp_path(camp) %></td>
+    <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
+    <td><%= camp.registrations.size %></td>
+    <td><%= camp.max_students %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+
+<!-- NOBODY IS REGISTERED! --> <br />
+
+<% if !@low_enroll.nil? %>
+The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
+<table class= 'alert-table'>
+  <tr>
+    <th>Name</th>
+    <th>Start Date</th>
+    <th>Enrolled</th>
+    <th>Max Enroll</th>
+  </tr>
+
+<% @low_enroll.each do |camp| %>
+  <tr>
+    <td><%= link_to camp.name, camp_path(camp) %></td>
+    <td><%= camp.start_date.strftime('%m/%d/%y') %></td>
+    <td><%= camp.registrations.size %></td>
+    <td><%= camp.max_students %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+
+</div>
+
 <div > 
 
-
-<%= link_to 'payments printable', payments_path %>
-<%= link_to 'general info printable', general_path %>
-<br/>
+<%= link_to 'payments printable', payments_path %><br/>
+<%= link_to 'general info printable', general_path %><br/>
 
 </div>
 <br /><br /><br />

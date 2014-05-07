@@ -1,7 +1,6 @@
 <%= simple_form_for @registration, :html => { :class => 'form-horizontal' } do |f| %>
   <fieldset>
-    <legend><%= controller.action_name.capitalize %> Registration </legend>
-  <%= f.input :student_id, :collection => Student.active.alphabetical, :include_blank => true %>
+    <legend><%= controller.action_name.capitalize %> Registration for   </legend>
 
 		<%= f.input :camp_id, :collection => @possible_camps, :label_method => lambda {  |camp| camp.start_date.strftime('%m/%d/%y') + ' (' + camp.time_slot + ') - '+ camp.name } %>
 	

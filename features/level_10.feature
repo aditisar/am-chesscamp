@@ -17,7 +17,7 @@ Feature: Manage User Accounts
     And I select "Instructor" from "instructor_user_attributes_role"
     And I press "Update Instructor"
     Then I should see "Stafford Brunk was revised in the system"
-    And I should see "Role"
+    #And I should see "Role"
     And I should see "instructor"
     And I should see "sbrunk"
 
