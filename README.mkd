@@ -1,6 +1,6 @@
 ## TA: PLEASE READ ##
 
-Regarding cucumber tests: My code fails the last test (And I should see "sbrunk") in the first scenario (An admin can add a user to an existing instructor) of level 10 cucumber tests.  When I run this manually, it works, and an account username is displayed if the instructor has a user. Please test this manually to verify - I talked to profh and he tried it on his machine and it worked, so he told me to add this note. 
+Regarding cucumber tests: My code fails two scenarios in level 10 (An admin can add a user to an existing instructor) and (A newly-created instructor can get a user at the same time) I talked to Prof H about this and we found that it wasn't keeping track of the current user that's logged in, so cucumber doesn't see those fields. He told me to write this note and ask you to manually test adding a user to an isntructor without one, and adding a new instructor with a user. 
 
 REGISTRATIONS: They way I handled registration for this camp was via the student page. If an admin wants to register a student for the camp, they go to the student's page, click register for camp, where they are directed to a form that will only show camps they are actually allowed to register for. 
 
