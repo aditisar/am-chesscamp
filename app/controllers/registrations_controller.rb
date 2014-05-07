@@ -14,7 +14,16 @@ class RegistrationsController < ApplicationController
   def new
     @registration = Registration.new
     @registration.student_id = params[:id] unless params[:id].nil?
-   # @registration.camp_id = params[:id] unless params[:id].nil?
+    #set student to current student
+    @student = Student.find(@registration.student_id)
+    #making an array of camps that that student can actually register for
+    @possible_camps = Camp.active.to_a
+    #get rid of camps that don't match students rating
+    @possible_camps.delete_if { |c| c.curriculum.max_rating < @student.rating }
+    @possible_camps.delete_if { |c| c.curriculum.min_rating > @student.rating }    
+    #get rid of camps at the same time as camps they are registered for
+    @times_taken = @student.camps.map { |c| [c.start_date,c.time_slot] }
+    @possible_camps.delete_if { |c| @times_taken.include?([c.start_date,c.time_slot]) }    
   end
 
   def edit    
