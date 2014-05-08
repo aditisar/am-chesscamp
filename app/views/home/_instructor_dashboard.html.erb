@@ -4,7 +4,7 @@
 <br /> 
 <p>Click <%= link_to 'here', instructor_path(current_user.instructor) %> to view your information, or <%= link_to 'here', edit_instructor_path(current_user.instructor) %> to update it. </p>
 
-<br />
+
 
 <% if can? :manage, :all %>
  <%= render :partial => "admin_dashboard" %>
@@ -21,8 +21,6 @@
     </ul>
   </div>
 <% end %>
-
-
 
 
 
