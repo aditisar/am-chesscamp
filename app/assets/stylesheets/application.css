@@ -49,6 +49,11 @@ table.printable {
   background-color: #ff9999
 }
 
+.report-panel {
+  padding: 1em;
+  background-color: #98fb98 
+}
+
 .alert-table {
 	text-align: center
 }
@@ -63,4 +68,38 @@ table.printable {
 
 table.printable th {
 	text-align: left
+}
+
+ol.boxes-list {
+    list-style-type: none;
+    list-style-type: decimal !ie; /*IE 7- hack*/
+     
+    margin: 0;
+    margin-left: 3em;
+    padding: 0;
+     
+    counter-reset: li-counter;
+}
+ol.boxes-list > li{
+    position: relative;
+    margin-bottom: 15px;
+    padding: 1em;
+     
+    background-color: #d5d5d5;
+}
+ol.boxes-list > li:before {
+    position: absolute;
+    top: 0;
+    left: -1em;
+    width: 0.94em;
+    height: 0.94em;
+     
+    font-size: 3em;
+    line-height: 0.94;
+    text-align: center;
+    color: #f5f5f5;
+ 
+    background-color: #464646;
+    content: counter(li-counter);
+    counter-increment: li-counter;
 }

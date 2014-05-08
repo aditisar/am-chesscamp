@@ -53,27 +53,29 @@ The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
 
 </div>
 <%end%>
-<div > 
+<br/> <br/>
+<div class = 'report-panel' > 
 <br />
-<strong> Generate Reports </strong><br/>
+<div>
+<strong> Generate Reports </strong><br/><br/>
 
 <ol> 
-<li> <%= link_to 'This year\'s payment report', payments_path %> </li>
+<li> <%= link_to 'This year\'s payment report', payments_path %> </li><br/>
 
 <li> Pick a camp to view its specific payment report
    <!-- GENERATE REPORT FOR A CAMP OF CHOOSING -->
 <%= form_tag(camp_report_path) do %>
 <%= select_tag(:camp_id, options_for_select(@all_camps.map { |c| [c.start_date.strftime('%m/%d/%y') + " - " +c.name.to_s, c.id]})) %>
-<%= submit_tag("Generate camp report") %>
+<%= submit_tag("Generate camp report", class: "button tiny radius") %>
 <% end %>
-</li>
+</li><br/>
 
 <li> Pick a family to view its specific payment report for a given year
  <!-- GENERATE REPORT FOR A FAMILY OF CHOOSING -->
 <%= form_tag(family_report_path) do %>
 <%= select_tag(:family_id, options_for_select(@all_families.map { |f| [f.to_s, f.id]}.uniq.sort)) %>
 <%= select_tag(:year, options_for_select(@all_camps.map{ |c| [c.start_date.year, c.start_date.year]}.uniq)) %>
-<%= submit_tag("Generate family report") %>
+<%= submit_tag("Generate family report", class: "button tiny radius") %>
 <% end %>
 
 
@@ -81,6 +83,7 @@ The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
 
 </ol>
 
+</div>
 
 
 
