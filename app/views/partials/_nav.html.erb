@@ -26,7 +26,6 @@
             <ul class="dropdown">
               <li><%= link_to "List Camps", camps_path %></li>
               <li><%= link_to "Add a Camp", new_camp_path %></li>
-              <li><%= link_to "List Camp Locations", locations_path %></li>
             </ul>
           </li>
          
@@ -39,21 +38,39 @@
           <!-- options for instructors only admins should be able to see the list -->
           <li class="has-dropdown">
             <!-- <a href="#">Instructors</a> -->
+            <%= link_to "Students/Families", students_path %>
+            <ul class="dropdown">
+              <li><%= link_to "List Students", students_path %></li>
+              <li><%= link_to "Add a Student", new_student_path %></li>
+              <li><%= link_to "List Families", families_path %></li>
+              <li><%= link_to "Add a Family", new_family_path %></li>
+            </ul>
+          </li>
+
+          <li class="has-dropdown">
+            <!-- <a href="#">Instructors</a> -->
             <%= link_to "Instructors", instructors_path %>
             <ul class="dropdown">
               <li><%= link_to "List Instructors", instructors_path %></li>
               <li><%= link_to "Add an Instructor", new_instructor_path %></li>
             </ul>
           </li>
+          
+
+
           <li class="has-dropdown">
-            <!-- <a href="#">Instructors</a> -->
-            <%= link_to "Students", students_path %>
+            <%= link_to "Locations", locations_path %>
             <ul class="dropdown">
-              <li><%= link_to "List Students", students_path %></li>
-              <li><%= link_to "List Families", families_path %></li>
+              <li><%= link_to "List Camp Locations", locations_path %></li>
+              <li><%= link_to "Add Camp Location", new_location_path %></li>
             </ul>
           </li>
+          
+
+          
           <% end %>
+
+
 
           <li>
            <% if logged_in? %>

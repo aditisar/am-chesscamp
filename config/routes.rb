@@ -21,8 +21,8 @@ ChessCamp::Application.routes.draw do
   get 'home/privacy', to: 'home#privacy', as: :privacy
 
   get 'printables/payments', to: 'printables#payments', as: :payments
-  get 'printables/general', to: 'printables#general', as: :general
-
+  post 'printables/camp_report', to: 'printables#camp_report', as: :camp_report
+  post 'printables/family_report', to: 'printables#family_report', as: :family_report
   # set the root url
   root to: 'home#index'
 

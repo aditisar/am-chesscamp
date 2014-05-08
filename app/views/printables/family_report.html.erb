@@ -1,0 +1,42 @@
+<h3> Family Report for the<%= @family.family_name %> family in <%= @year %></h3><br />
+List of all payments received and balances due.
+<br /><br /><br />
+
+<% if @family.students.size > 0 %>
+<table class='printable'>
+	<tr>
+		<th> Student </th>
+		<th> Camp </th> 
+		<th> Amount Paid </th>
+		<th> Balance Due </th>
+	</tr>
+
+	<% @family.students.each do |s| %>
+
+		<% if s.registrations.size > 0 %>
+		
+		<% s.registrations.each do |r| %>
+	
+		<tr>
+			<td> <%= s.proper_name %></td>
+			<td> <%=r.camp.name %> on <%= r.camp.start_date %></td>
+			<td> <%=r.payment_status == 'full' ? number_to_currency(r.camp.cost) : 	number_to_currency(50) %> </td>
+			<td> <%=r.payment_status == 'full' ? number_to_currency(0) : number_to_currency(	r.camp.cost - 50) %> </td>
+		</tr>
+		<% end %>
+
+		<% end %>
+
+	<% end %>
+
+	<tr> 
+		<th> Total: </th>
+		<th>  </th>
+		<th><%= number_to_currency(@family.amount_paid) %></th>
+		<th><%= number_to_currency(@family.balance_due) %></th>
+	</tr>
+	
+</table> 
+<% else %> 
+No registrations! <br /><br />
+<% end %>

@@ -1,0 +1,34 @@
+<h3> Camp Report for  <%= @camp.name %> on <%= @camp.start_date %></h3><br />
+A list of all payments received and balances due along with grand totals for each.<br /><br /><br />
+
+<% if @camp.registrations.size > 0 %>
+<table class='printable'>
+	<tr>
+		<th> Parent </th>
+		<th> Student </th> 
+		<th> Amount Paid </th>
+		<th> Balance Due </th>
+	</tr>
+
+
+
+	<% @camp.registrations.each do |r| %>
+	<tr>
+		<td> <%= r.student.family.parent_first_name.to_s + " " + r.student.family.family_name.to_s %></td>
+		<td> <%=r.student.proper_name %> </td>
+		<td> <%=r.payment_status == 'full' ? number_to_currency(@camp.cost) : number_to_currency(50) %> </td>
+		<td> <%=r.payment_status == 'full' ? number_to_currency(0) : number_to_currency(@camp.cost - 50) %> </td>
+	</tr>
+	<% end %>
+
+	<tr> 
+		<th> Total: </th>
+		<th> </th>
+		<th> <%= number_to_currency(@camp.amount_paid) %> </th>
+		<th> <%= number_to_currency(@camp.cost * @camp.registrations.size - @camp.amount_paid) %> </th>
+	</tr>
+	
+</table> 
+<% else %> 
+No registrations! <br /><br />
+<% end %>

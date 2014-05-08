@@ -57,13 +57,33 @@ The following camps have LITTLE OR NO ENROLLMENT: <br /><br />
 <br />
 <strong> Generate Reports </strong><br/>
 
-<ul> 
+<ol> 
 <li> <%= link_to 'This year\'s payment report', payments_path %> </li>
 
+<li> Pick a camp to view its specific payment report
+   <!-- GENERATE REPORT FOR A CAMP OF CHOOSING -->
+<%= form_tag(camp_report_path) do %>
+<%= select_tag(:camp_id, options_for_select(@all_camps.map { |c| [c.start_date.strftime('%m/%d/%y') + " - " +c.name.to_s, c.id]})) %>
+<%= submit_tag("Generate camp report") %>
+<% end %>
+</li>
 
-</ul>
+<li> Pick a family to view its specific payment report for a given year
+ <!-- GENERATE REPORT FOR A FAMILY OF CHOOSING -->
+<%= form_tag(family_report_path) do %>
+<%= select_tag(:family_id, options_for_select(@all_families.map { |f| [f.to_s, f.id]}.uniq.sort)) %>
+<%= select_tag(:year, options_for_select(@all_camps.map{ |c| [c.start_date.year, c.start_date.year]}.uniq)) %>
+<%= submit_tag("Generate family report") %>
+<% end %>
 
-<%= link_to 'general info printable', general_path %><br/>
+
+</li>
+
+</ol>
+
+
+
+
 
 </div>
 <br /><br /><br />

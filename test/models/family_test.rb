@@ -76,5 +76,38 @@ class FamilyTest < ActiveSupport::TestCase
     should "have a to string method that returns the family name" do
       assert_equal @grubermans.to_s, 'Gruberman'
     end
+
+    should "have a method for finding out the total paid for a family" do
+      create_curriculums
+      create_active_locations
+      create_camps
+      create_families
+      create_students
+      create_paid_registrations
+      assert_equal 125, @skirpans.amount_paid
+      delete_curriculums
+      delete_active_locations
+      delete_camps
+      delete_paid_registrations
+      delete_families
+      delete_students
+    end
+
+    should "have a method for finding out the balance due for a family" do
+      create_curriculums
+      create_active_locations
+      create_camps
+      create_families
+      create_students
+      create_paid_registrations
+      assert_equal 0, @skirpans.balance_due
+      delete_curriculums
+      delete_active_locations
+      delete_camps
+      delete_paid_registrations
+      delete_families
+      delete_students
+    end
+
   end
 end

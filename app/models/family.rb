@@ -27,5 +27,24 @@ class Family < ActiveRecord::Base
   def to_s
     self.family_name
   end
+
+  def amount_paid
+    a = 0
+    self.students.each do |s|
+      s.registrations.each do |r|
+        r.payment_status == 'full' ? a+=r.camp.cost : a+=50
+      end
+    end
+    return a
+  end
   
+    def balance_due
+    b = 0
+    self.students.each do |s|
+      s.registrations.each do |r|
+        r.payment_status == 'full' ? b+=0 : b+= r.camp.cost - 50 
+      end
+    end
+    return b
+  end
 end
