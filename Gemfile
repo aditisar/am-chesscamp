@@ -4,7 +4,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+#gem 'sqlite3'
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -94,4 +95,10 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'capybara'
+end 
+
+group :production do
+  gem 'rails_12factor'
 end
+
+ruby "2.0.0"
