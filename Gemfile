@@ -102,3 +102,4 @@ group :production do
 end
 
 ruby "2.0.0"
+gem 'unicorn'
