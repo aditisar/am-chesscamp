@@ -1,19 +1,8 @@
-## TA: PLEASE READ ##
+A&M Chess Camp
 
-Regarding cucumber tests: My code fails two scenarios in level 10 (An admin can add a user to an existing instructor) and (A newly-created instructor can get a user at the same time) I talked to Prof H about this and we found that it wasn't keeping track of the current user that's logged in, so cucumber doesn't see those fields. He told me to write this note and ask you to manually test adding a user to an isntructor without one, and adding a new instructor with a user. 
+This is my final project for 67-272 (Application Design and Development). The working website can be viewed at amchesscamp.herokuapp.com. 
+
+Regarding some failing cucumber tests: My code fails two scenarios in level 10 (An admin can add a user to an existing instructor) and (A newly-created instructor can get a user at the same time) I talked to Prof H about this and we found that it wasn't keeping track of the current user that's logged in, so cucumber doesn't see those fields. He told me to write this note and ask you to manually test adding a user to an isntructor without one, and adding a new instructor with a user. 
 
 REGISTRATIONS: They way I handled registration for this camp was via the student page. If an admin wants to register a student for the camp, they go to the student's page, click register for camp, where they are directed to a form that will only show camps they are actually allowed to register for. 
 
------------------------------
-This is starter code for the course project in 67-272: Application Design and Development.  This code has basic views and controllers required for phase 3 and it passes all cucumber tests.  In addition, it has all the models created and tested as specified in phase 4.
-
-Students can use this as a base to work off of in phase 5 -- HOWEVER, the basic design, color scheme, images and the like must be modified from the tepid design provided here.  (BTW, the text on the static pages like home, about, and contact are purposefully snarky -- you would never use this in a real app and we expect you to modify it to something more appropriate.)  We will reiterate this warning in phase 5 but we are saying it now as well to maximize the opportunities to get the word out: **if students stay with the CSS, images and text used here they can expect to lose 10 points on their phase 5 grade.**  (If you want to have fun with this project you have to make it your own and style it as you see fit.)
-
-To set this up, clone this repository, run the `bundle install` command to ensure you have all the needed gems and then create the database with `rake db:migrate`.  If you want to populate the system with fictitious, but somewhat realistic data (similar to the data given in the spreadsheets in phase 1), you can run the `rake db:populate` command.  The populate script will create:
-- 100 families
-- over 200 students
-- over 35 camps
-
-Many objects are created with some element of randomness so you will get slightly different results each time it is run.  However, instructors and users are fixed.  All users in the system have a password of 'secret'.  In terms of users there are two admins (Alex and Mark) and four instructor-level users (our four Head TAs).  The username for each is their first name in all lowercase.
-
-Instructions for what needs to be done in this phase of the project can be found in the phase 5 write-up found on the [67-272 course site](http://cmu-is-272.org/projects/5).
