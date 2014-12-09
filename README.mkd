@@ -1,6 +1,6 @@
 A&M Chess Camp
 
-This is my final project for 67-272 (Application Design and Development). The working website can be viewed at amchesscamp.herokuapp.com. 
+This is my final project for 67-272 (Application Design and Development). The working website can be viewed at amchesscamp.herokuapp.com. (Full admin version can be accessed with login: mark pw: secret)
 
 Regarding some failing cucumber tests: My code fails two scenarios in level 10 (An admin can add a user to an existing instructor) and (A newly-created instructor can get a user at the same time) I talked to Prof H about this and we found that it wasn't keeping track of the current user that's logged in, so cucumber doesn't see those fields. He told me to write this note and ask you to manually test adding a user to an isntructor without one, and adding a new instructor with a user. 
 
