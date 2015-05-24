@@ -2,7 +2,7 @@
 
 This is my final project for 67-272 (Application Design and Development) in Spring 2014. 
 
-I've deployed the app at [amchesscamp.herokuapp.com](amchesscamp.herokuapp.com). The full administrator version can be accessed with the username 'mark' or 'alex', the instructor version can be accessed with the username 'mike' and the password is 'secret' for everybody.
+I've deployed the app at [amchesscamp.herokuapp.com](http://amchesscamp.herokuapp.com/). The full administrator version can be accessed with the username 'mark' or 'alex', the instructor version can be accessed with the username 'mike' and the password is 'secret' for everybody.
 
 #### Notes for graders: 
 
